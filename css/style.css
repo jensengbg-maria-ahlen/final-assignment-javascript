@@ -10,7 +10,7 @@ body {
 
 /*-------------------------Mobile View-------------------------*/
 .wrapper {
-    max-width: 1000vw;
+    max-width: 768px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-rows: auto;
@@ -45,12 +45,51 @@ body {
 
 header {
     grid-area: header;
+    margin: 1rem;
+    font-family: 'Permanent Marker', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 nav {
     grid-area: nav;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
+input {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    padding: 0.5rem;
+    margin: 0.5rem;
+    outline: 0;
+}
+
+button {
+    background-color: rgb(201, 200, 200);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 5px;
+    text-decoration: solid;
+    padding: 0.5rem;
+}
+button:hover, button:active, button:focus {
+    background-color: rgb(160, 157, 157);
+    outline: 0;
+}
+
+
 main {
+    margin: 1rem;
     grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
