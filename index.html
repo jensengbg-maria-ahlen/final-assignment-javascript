@@ -8,13 +8,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <input type="text" name="inputText" id="inputText">
-    <input type="text" name="numberOfImages" id="numberOfImages">
-    <button id="search">Search</button>
-
-    <section class="images">
-        <div id="img"></div>
-    </section>
+    <div class="wrapper">
+        <header>
+            <h1>Search for your images</h1>
+        </header>
+    
+        <nav>
+            <input type="text" placeholder="What to search for?" id="inputText">
+            <input type="text" placeholder="How many images?" id="numberOfImages">
+            <button id="search">Search</button>
+        </nav>
+        
+        <main>
+            <section id="images">
+                <div class='img'></div>
+            </section>
+        </main>
+    </div>
     
     <script src="js/index.js"></script>
 </body>
