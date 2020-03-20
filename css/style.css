@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: rgb(240, 240, 240);
 }
 
 * {
@@ -38,22 +39,27 @@ body {
         grid-auto-rows: auto;
         grid-template-areas: "header header header header header header"
                              "nav nav nav nav nav nav"
-                             "main main main main main main";
+                             ". main main main main .";
     }
 } 
 
+
+/*-------------------------Header-------------------------*/
 header {
     grid-area: header;
-    background: linear-gradient(rgba(165, 165, 165, 0.5), rgba(63, 63, 63, 0.5)), url(/img/person.jpg);
+    background-image: url(/img/person.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70rem 50rem;
     width: 100%;
-    height: 40vh;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 
+/*-------------------------Nav bar-------------------------*/
 nav {
     grid-area: nav;
     margin: 1rem;
@@ -63,6 +69,7 @@ nav {
     flex-wrap: wrap;
 }
 
+/*-------------------------Search fields-------------------------*/
 input {
     border-radius: 5px;
     width: 20rem;
@@ -71,6 +78,7 @@ input {
     outline: 0;
 }
 
+/*-------------------------Search button-------------------------*/
 button {
     background-color: rgb(201, 200, 200);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
@@ -88,11 +96,44 @@ button:focus {
 }
 
 
+
+/*-------------------------Main-------------------------*/
 main {
-    margin: 1rem;
+    margin: 3rem;
+    padding: 1rem;
     grid-area: main;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    background-color: rgb(255, 255, 255);
+}
+
+/*-------------------------Images-------------------------*/
+div {
+    border: black solid 1px;
+}
+
+/*-------------------------Lightbox-------------------------*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(68, 68, 68, 0.24);
+}
+
+/*-------------------------Close Lightbox-------------------------*/
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
 }

@@ -37,11 +37,10 @@ async function getImages(inputText, numberOfImages) {
 }
 
 
-/*-------------------------Get info in images-------------------------*/
+/*-------------------------Get info of images-------------------------*/
 function getInfo(images) {
     let infoURL = `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}.jpg`;
     console.log(images);
-    fetch(infoURL);
 }
 
 
@@ -51,3 +50,20 @@ searchButton.addEventListener('click', function() {
     let numberOfImages = document.getElementById('numberOfImages').value;
     getImages(inputText, numberOfImages);
 });
+
+
+/*-------------------------Show Modal-------------------------*/
+function showModal() {
+    images.addEventListener('click', function() {
+        let modal = document.querySelector('.modal');
+        modal.classList.toggle('model');
+    })
+}
+
+/*-------------------------Close Modal-------------------------*/
+function closeModal() {
+    document.querySelector('.close').addEventListener('click', function() {
+        let modal = document.querySelector('.modal');
+        modal.classList.toggle('model');
+    })
+}
