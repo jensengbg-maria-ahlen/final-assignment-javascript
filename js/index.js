@@ -6,18 +6,26 @@ const searchButton = document.getElementById('search');
 let imagesElem = document.getElementById('images');
 
 
-/*-------------------------Add images to HTML-------------------------*/
+/*-------------------------Get info of images-------------------------*/
+function getInfo(images) {
+    let infoURL = `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}.jpg`;
+    return infoURL;
+}
+
+
+/*-------------------------Show and add images to HTML-------------------------*/
 function showImages(images) {
-    let elem = document.createElement('img');
-    elem.innerHTML = images;
-    imagesElem.append(elem);
+    let elem = document.createElement('div');
+    let infoURL = `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}.jpg`;
+    elem.innerHTML = `<img src="${infoURL}"></img>`;
+    imagesElem.appendChild(elem);
 }
 
 function addImages(images) {
     imagesElem.innerHTML = '';
     for(let i = 0; i < images.photos.photo.length; i++) {
-        showImages(images.photos.photo[i]);
         getInfo(images.photos.photo[i]);
+        showImages(images.photos.photo[i]);
     }
 }
 
@@ -31,17 +39,12 @@ async function getImages(inputText, numberOfImages) {
         let response = await fetch(url);
         let data = await response.json();
         addImages(data);
+        return url;
     } catch(error) {
         console.error(error);
     }
 }
 
-
-/*-------------------------Get info of images-------------------------*/
-function getInfo(images) {
-    let infoURL = `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}.jpg`;
-    console.log(images);
-}
 
 
 /*-------------------------Click on button-------------------------*/
