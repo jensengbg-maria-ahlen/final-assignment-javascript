@@ -8,7 +8,7 @@ let imagesElem = document.getElementById('images');
 
 /*-------------------------Add images to HTML-------------------------*/
 function showImages(images) {
-    let elem = document.createElement('div');
+    let elem = document.createElement('img');
     elem.innerHTML = images;
     imagesElem.append(elem);
 }
