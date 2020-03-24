@@ -4,22 +4,20 @@ const searchButton = document.getElementById('search');
 
 //The Images
 let imagesElem = document.getElementById('images');
-
-
-/*-------------------------Get info of images-------------------------*/
-function getInfo(images) {
-    let infoURL = `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}.jpg`;
-    return infoURL;
-}
+let infoURL = '';
 
 
 /*-------------------------Show and add images to HTML-------------------------*/
 function showImages(images) {
-    let elem = document.createElement('div');
+    let elem = document.createElement('section');
     let infoURL = `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}.jpg`;
-    elem.innerHTML = `<img src="${infoURL}"></img>`;
+    elem.innerHTML = `<img class="modalImg" src="${infoURL}"></img>`;
     imagesElem.appendChild(elem);
+    elem.addEventListener('click', () => {
+        showModal(images);
+    });
 }
+
 
 function addImages(images) {
     imagesElem.innerHTML = '';
@@ -34,7 +32,6 @@ function addImages(images) {
 async function getImages(inputText, numberOfImages) {
     let searchUrl = `https://api.flickr.com/services/rest?&api_key=19d3e6e0acfe9c438f368e2c2bab1c5d&method=flickr.photos.search&text=${inputText}&per_page=${numberOfImages}&page=1&format=json&nojsoncallback=1`;
     let url = searchUrl;
-    
     try {
         let response = await fetch(url);
         let data = await response.json();
@@ -45,6 +42,12 @@ async function getImages(inputText, numberOfImages) {
     }
 }
 
+
+/*-------------------------Get info of images-------------------------*/
+function getInfo(images) {
+    let infoURL = `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}.jpg`;
+    return infoURL;
+}
 
 
 /*-------------------------Click on button-------------------------*/
@@ -57,16 +60,15 @@ searchButton.addEventListener('click', function() {
 
 /*-------------------------Show Modal-------------------------*/
 function showModal() {
-    images.addEventListener('click', function() {
-        let modal = document.querySelector('.modal');
-        modal.classList.toggle('model');
-    })
+    let modal = document.querySelector('.modal');
+    modal.classList.toggle('model');
 }
 
 /*-------------------------Close Modal-------------------------*/
 function closeModal() {
-    document.querySelector('.close').addEventListener('click', function() {
+    document.querySelector('elem').addEventListener('click', function() { 
         let modal = document.querySelector('.modal');
         modal.classList.toggle('model');
+        console.log('hej');
     })
 }

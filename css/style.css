@@ -39,7 +39,7 @@ body {
         grid-auto-rows: auto;
         grid-template-areas: "header header header header header header"
                              "nav nav nav nav nav nav"
-                             ". main main main main .";
+                             "main main main main main main";
     }
 } 
 
@@ -52,12 +52,15 @@ header {
     background-repeat: no-repeat;
     background-size: 70rem 50rem;
     width: 100%;
-    height: 50vh;
+    height: 60vh;
     display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    padding-top: 5rem;
+    padding-bottom: 5rem;
+    font-family: 'Source Code Pro', monospace;
+    font-size: small;
 }
 
 
@@ -73,11 +76,14 @@ nav {
 
 /*-------------------------Search fields-------------------------*/
 input {
+    border: none;
     border-radius: 5px;
     width: 20rem;
     padding: 0.5rem;
     margin: 0.5rem;
     outline: 0;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    font-family: 'Source Code Pro', monospace;
 }
 
 /*-------------------------Search button-------------------------*/
@@ -88,6 +94,9 @@ button {
     border-radius: 5px;
     text-decoration: solid;
     padding: 0.5rem;
+    margin: 0.5rem;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bold;
 }
 button:active {
     background-color: rgb(160, 157, 157);
@@ -101,23 +110,29 @@ button:focus {
 
 /*-------------------------Main-------------------------*/
 main {
-    margin: 3rem;
-    padding: 1rem;
     grid-area: main;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
     background-color: rgb(255, 255, 255);
 }
 
 /*-------------------------Images-------------------------*/
-img {
-    border: black solid 1px;
+#images {
     margin: 1rem;
-    width: 10rem;
-    height: 10rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
+section {
+    margin: 0.5rem;
+    width: 15rem;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /*-------------------------Lightbox-------------------------*/
 .modal {
@@ -131,6 +146,13 @@ img {
     height: 100%;
     overflow: auto;
     background-color: rgba(68, 68, 68, 0.24);
+}
+
+.modalImg {
+    padding: 1rem;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: rgb(240, 240, 240);
 }
 
 /*-------------------------Close Lightbox-------------------------*/
