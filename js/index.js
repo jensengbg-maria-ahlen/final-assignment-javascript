@@ -2,23 +2,26 @@
 //The searchbutton
 const searchButton = document.getElementById('search');
 
-//The Images
+//The images
 let imagesElem = document.getElementById('images');
-let infoURL = '';
+
+//The modal
+let modal = document.getElementById('modal');
 
 
-/*-------------------------Show and add images to HTML-------------------------*/
+/*-------------------------Show images-------------------------*/
 function showImages(images) {
-    let elem = document.createElement('section');
     let infoURL = `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}.jpg`;
+    let elem = document.createElement('section');
     elem.innerHTML = `<img class="modalImg" src="${infoURL}"></img>`;
     imagesElem.appendChild(elem);
     elem.addEventListener('click', () => {
         showModal(images);
+        closeModal(images);
     });
 }
 
-
+/*-------------------------Add images to HTML-------------------------*/
 function addImages(images) {
     imagesElem.innerHTML = '';
     for(let i = 0; i < images.photos.photo.length; i++) {
@@ -58,17 +61,16 @@ searchButton.addEventListener('click', function() {
 });
 
 
-/*-------------------------Show Modal-------------------------*/
+/*-------------------------Show modal-------------------------*/
 function showModal() {
-    let modal = document.querySelector('.modal');
-    modal.classList.toggle('model');
+    console.log('hej');
+    modal.classList.toggle('hide');
 }
 
-/*-------------------------Close Modal-------------------------*/
+/*-------------------------Close modal-------------------------*/
 function closeModal() {
-    document.querySelector('elem').addEventListener('click', function() { 
-        let modal = document.querySelector('.modal');
-        modal.classList.toggle('model');
-        console.log('hej');
-    })
+    let close = document.querySelector('.close');
+    close.addEventListener('click', () => {
+        modal.classList.toggle('hide');
+    });
 }
