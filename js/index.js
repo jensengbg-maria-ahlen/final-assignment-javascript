@@ -22,7 +22,7 @@ function showImages(images) {
     });
 }
 
-/*-------------------------Show big images-------------------------*/
+/*-------------------------Show big images in modal-------------------------*/
 function getBig(images) {
     let img = document.createElement('img');
     img.setAttribute('src', getInfo(images, 'z'));
@@ -42,7 +42,7 @@ function addImages(images) {
 
 
 
-/*-------------------------Get images-------------------------*/
+/*-------------------------Get images from API-------------------------*/
 async function getImages(inputText, numberOfImages) {
     let searchUrl = `https://api.flickr.com/services/rest?&api_key=19d3e6e0acfe9c438f368e2c2bab1c5d&method=flickr.photos.search&text=${inputText}&per_page=${numberOfImages}&page=1&format=json&nojsoncallback=1`;
     let url = searchUrl;
@@ -58,7 +58,7 @@ async function getImages(inputText, numberOfImages) {
 }
 
 
-/*-------------------------Get info of images-------------------------*/
+/*-------------------------Get info from images-------------------------*/
 function getInfo(images, size) {
     return `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}_${size}.jpg`;
     
