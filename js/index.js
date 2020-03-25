@@ -4,12 +4,13 @@ const searchButton = document.querySelector('button');
 
 //The images
 let imagesElem = document.getElementById('images');
+let bigImg = document.getElementById('bigImg');
 
 //The modal
 let modal = document.getElementById('modal');
 
 
-/*-------------------------Show images-------------------------*/
+/*-------------------------Show small images-------------------------*/
 function showImages(images) {
     let elem = document.createElement('img');
     elem.setAttribute('src', getInfo(images, 'm'));
@@ -21,16 +22,24 @@ function showImages(images) {
     });
 }
 
+/*-------------------------Show big images-------------------------*/
+function getBig() {
+    let img = document.createElement('img');
+    img.setAttribute('src', getInfo(images, 'o'));
+    bigImg.appendChild(img);
+}
+
 
 /*-------------------------Add images to HTML-------------------------*/ 
 function addImages(images) {
-    imagesElem.innerHTML = '';
-    
+    imagesElem.innerHTML = '';    
+
     for(let i = 0; i < images.photos.photo.length; i++) {
         getInfo(images.photos.photo[i]);
         showImages(images.photos.photo[i]);
     }
 }
+
 
 
 /*-------------------------Get images-------------------------*/
@@ -66,7 +75,7 @@ searchButton.addEventListener('click', function() {
 /*-------------------------Show modal-------------------------*/
 function showModal() {
     modal.classList.toggle('hide');
-    console.log('hej');
+    getBig(images);
 }
 
 
@@ -75,5 +84,6 @@ function closeModal() {
     let close = document.querySelector('.close');
     close.addEventListener('click', () => {
         modal.classList.add('hide');
+        bigImg.innerHTML = '';
     });
 }

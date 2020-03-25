@@ -148,7 +148,7 @@ img {
     background-color: rgba(46, 45, 45, 0.685);
 }
 
-#modal img {
+.bigImg {
     max-width: 90%;
     max-height: 90%;
     margin-top: 2%;
