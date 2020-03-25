@@ -23,9 +23,9 @@ function showImages(images) {
 }
 
 /*-------------------------Show big images-------------------------*/
-function getBig() {
+function getBig(images) {
     let img = document.createElement('img');
-    img.setAttribute('src', getInfo(images, 'o'));
+    img.setAttribute('src', getInfo(images, 'z'));
     bigImg.appendChild(img);
 }
 
@@ -61,6 +61,7 @@ async function getImages(inputText, numberOfImages) {
 /*-------------------------Get info of images-------------------------*/
 function getInfo(images, size) {
     return `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}_${size}.jpg`;
+    
 }
 
 
@@ -73,7 +74,7 @@ searchButton.addEventListener('click', function() {
 
 
 /*-------------------------Show modal-------------------------*/
-function showModal() {
+function showModal(images) {
     modal.classList.toggle('hide');
     getBig(images);
 }

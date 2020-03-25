@@ -148,15 +148,21 @@ img {
     background-color: rgba(46, 45, 45, 0.685);
 }
 
-.bigImg {
-    max-width: 90%;
-    max-height: 90%;
-    margin-top: 2%;
-}
-
 #modal:target {
     outline: none;
     display: block;
+}
+
+#bigImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bigImg > img {
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 2%;
 }
 
 /*-------------------------Close Lightbox-------------------------*/
