@@ -37,6 +37,7 @@ function addImages(images) {
     for(let i = 0; i < images.photos.photo.length; i++) {
         getInfo(images.photos.photo[i]);
         showImages(images.photos.photo[i]);
+        console.log(images.photos.photo[i]);
     }
 }
 
@@ -61,7 +62,6 @@ async function getImages(inputText, numberOfImages) {
 /*-------------------------Get info from images-------------------------*/
 function getInfo(images, size) {
     return `https://farm${images.farm}.staticflickr.com/${images.server}/${images.id}_${images.secret}_${size}.jpg`;
-    
 }
 
 
